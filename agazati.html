@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Informatika Ágazati Alapvizsga Tanulási Vázlat</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #111827;
+      --card: #0b1220;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --border: #1f2937;
+      --table: #0b1324;
+      --code: #0a0f1a;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1e293b 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 48px 24px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 24px;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    .notice {
+      background: linear-gradient(180deg, #0b1220 0%, #0a1020 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    section {
+      margin: 28px 0 36px;
+    }
+
+    .day-title {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 16px 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #e2e8f0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    ul, ol {
+      padding-left: 22px;
+    }
+
+    strong {
+      color: #f1f5f9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: var(--table);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #0a1020;
+      color: #cbd5f5;
+      font-weight: 600;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #0f1b32;
+      border: 1px solid #1f2a44;
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      margin-left: 6px;
+    }
+
+    .tip {
+      border-left: 4px solid var(--accent-2);
+      padding: 10px 14px;
+      background: #0b1424;
+      border-radius: 8px;
+      color: #d1fae5;
+    }
+
+    .summary h2 {
+      margin-top: 0;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px 48px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      header { padding-top: 32px; }
+      .card { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informatika Ágazati Alapvizsga Tanulási Vázlat</h1>
+    <p class="subtitle">Az elmeleten valahogy at kell jutni igy meg lehet lehetseges ezt 2 ai csinalta a Claude osszegezte az osszes faljt(nemtudom hogy a kepek benne vannak e) majd belerakta egy md fileba ez alapjan lett megkerve a ChatGPT 5.2 Codex hogy rakjon ossze egy weboldalt a md file alapjan es hogy benne legyen minden ez szerintem eleg lesz arra hogy atmenj de tudja a gecim jobb mint a semmi + Ja es telon is mukodik aszem</p>
+    <p class="subtitle"><strong>Nem biztos hogy pontos de utolso lovesnek jo, sok sikert :)</strong></p>
+
+</header>
+
+  <main>
+
+    <!-- 1. NAP -->
+    <section>
+      <h2 class="day-title">Alapfogalmak: Neumann-elvek, Hardver, Firmware, BIOS/UEFI</h2>
+
+      <div class="card">
+        <h3>1.1 Neumann-elvek (a modern számítógépek alapja)</h3>
+        <p>A mai számítógépek mind az úgynevezett <strong>Neumann-architektúra</strong> szerint épülnek fel. Az elveket John von Neumann fektette le az 1940-es években.</p>
+        <p><strong>Az 5 Neumann-elv:</strong></p>
+        <ol>
+          <li><strong>Teljesen elektronikus működés</strong> – a számítógép elektronikus alkatrészekből áll, mechanikus elemek nélkül</li>
+          <li><strong>Kettes számrendszer (bináris)</strong> – az adatokat és utasításokat 0-ás és 1-es jelekkel tárolja és dolgozza fel</li>
+          <li><strong>Belső programtárolás</strong> – a program utasításai a memóriában vannak tárolva (nem kapcsolókon vagy lyukszalagon)</li>
+          <li><strong>Soros utasítás-végrehajtás</strong> – az utasítások egymás után hajtódnak végre (sorban)</li>
+          <li><strong>Univerzálisság</strong> – ugyanaz a gép különféle feladatokra képes, csak a programot kell cserélni</li>
+        </ol>
+        <p><strong>A Neumann-architektúra fő egységei:</strong></p>
+        <ul>
+          <li><strong>CPU</strong> (Central Processing Unit) – a számítógép „agya", feldolgozza az utasításokat</li>
+          <li><strong>Memória (RAM)</strong> – az adatok és programok ideiglenes tárolója</li>
+          <li><strong>Beviteli egységek</strong> – pl. billentyűzet, egér</li>
+          <li><strong>Kiviteli egységek</strong> – pl. monitor, nyomtató</li>
+          <li><strong>Háttértár</strong> – pl. merevlemez (tartós tárolás)</li>
+        </ul>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1.2 Hardver fogalma</h3>
+          <p><strong>Hardver:</strong> a számítógép fizikailag megfogható részei.</p>
+          <p>Egy személyi számítógép főbb hardverelemei:</p>
+          <ul>
+            <li>Ház és tápegység</li>
+            <li>Alaplap, processzor, memória</li>
+            <li>Bővítőkártyák (videokártya, hangkártya, hálózati kártya)</li>
+            <li>Háttértárak (merevlemez, DVD-meghajtó)</li>
+            <li>Külső perifériák</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>1.3 Firmware fogalma</h3>
+          <p><strong>Firmware:</strong> a hardverekbe gyártók által beépített szoftver.</p>
+          <ul>
+            <li>Olyan rögzített, kisméretű program, amely elektronikai eszközök vezérlését végzi</li>
+            <li>Példák: távirányító, merevlemez, billentyűzet, mobiltelefonok, fényképezőgépek</li>
+            <li><strong>Nincs éles határ</strong> a firmware és a szoftver között</li>
+            <li>Az alacsonyabb szintű firmware-ek <strong>ROM</strong>-ban vagy <strong>PLA</strong>-ban tárolódnak</li>
+            <li>A magasabb szintű firmware-ek <strong>flash memóriában</strong> tárolódnak → frissíthetők</li>
+            <li>Feladata: az eszköz alapvető működését biztosítja – nélküle az eszköz teljesen működésképtelen</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>1.4 BIOS és UEFI</h3>
+
+        <h4>BIOS (Basic Input-Output System)</h4>
+        <ul>
+          <li>A 70-es évek közepén vezették be</li>
+          <li><strong>Alacsony szintű szoftver</strong> az alaplapi chipen</li>
+          <li>Felelős: hardverkomponensek ébresztéséért, megfelelő működéséért</li>
+          <li>Indításkor a BIOS betöltődik és elindítja az operációs rendszert</li>
+          <li>A 90-es évekig ROM-ban tárolták (nem volt módosítható), ma <strong>EEPROM / flash memória</strong></li>
+          <li>Beállításait a <strong>CMOS RAM</strong> tárolja (CR2032 gombelem táplálja)</li>
+        </ul>
+
+        <p><strong>BIOS főbb beállításai:</strong> hardverkonfiguráció, rendszeridő, rendszerindítási sorrend</p>
+
+        <p><strong>POST (Power-On Self Test):</strong></p>
+        <ul>
+          <li>Az operációs rendszer indítása előtt a BIOS elvégzi a POST-ot</li>
+          <li>Ellenőrzi, hogy a hardver érvényes-e és megfelelően működik-e</li>
+          <li>Ha hiba van: hibaüzenet vagy hangjelzéssorozat</li>
+          <li>Utána a BIOS megkeresi a <strong>Master Boot Record-ot (MBR)</strong> a rendszerindító eszközön</li>
+        </ul>
+
+        <p><strong>Miért elavult a BIOS?</strong></p>
+        <ul>
+          <li>Nem támogatja a 2,2 TB-nál nagyobb HDD-ket</li>
+          <li>Nem támogatja a PCI-Express 3.0-t</li>
+          <li>Billentyűzettel kell navigálni, alacsony felbontású menü</li>
+          <li>Lassú indítás</li>
+        </ul>
+
+        <h4>UEFI (Unified Extensible Firmware Interface)</h4>
+        <ul>
+          <li>Az Intel 1998-ban kezdte fejleszteni EFI (Extensible Firmware Interface) névvel</li>
+          <li>2007-ben az Intel, AMD, Microsoft és más gyártók egységesítették → UEFI</li>
+          <li><strong>A mai számítógépek túlnyomó többsége UEFI-t használ</strong></li>
+        </ul>
+
+        <p><strong>UEFI előnyei a BIOS-szal szemben:</strong></p>
+        <ol>
+          <li><strong>Könnyű kezelhetőség</strong> – grafikus felület, egérrel navigálható, kezdő és haladó mód</li>
+          <li><strong>Átjárhatóság</strong> – webes felületről is elérhető, mobilról is kezelhető</li>
+          <li><strong>Windows 8/10 támogatás</strong> – Microsoft az UEFI-t helyezte előtérbe</li>
+          <li><strong>Gyorsabb végrehajtás</strong> – akár 10 másodperc alatt bootol (SSD-vel)</li>
+        </ol>
+
+        <p><strong>UEFI technikai adatok:</strong></p>
+        <ul>
+          <li>2 TB-nál nagyobb meghajtókról is bootolható (elméleti korlát: 9,4 zettabájt)</li>
+          <li>GPT partíciós rendszert használ (MBR helyett)</li>
+          <li>32 bites vagy 64 bites módban futtatható</li>
+          <li>Támogatja a <strong>Biztonságos rendszerindítást (Secure Boot)</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. NAP -->
+    <section>
+      <h2 class="day-title">Alaplap, Processzor, RAM, Hűtés</h2>
+
+      <div class="card">
+        <h3>2.1 Az Alaplap</h3>
+        <p><strong>Alaplap:</strong> a számítógép elsődleges, központi áramköri lapkája.</p>
+        <ul>
+          <li>Többrétegű nyomtatott áramköri lap (NYÁK)</li>
+          <li>Meghatározza: milyen processzor, RAM, bővítőkártyák illeszthetők be</li>
+          <li>Szabvány: <strong>ATX</strong> (leggyakoribb)</li>
+        </ul>
+
+        <p><strong>Az alaplap főbb komponensei:</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Komponens</th>
+              <th>Funkció</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Processzor foglalat (CPU socket)</strong></td><td>A CPU ide csatlakozik (LGA vagy PGA)</td></tr>
+            <tr><td><strong>RAM foglalatok (DIMM)</strong></td><td>A memóriamodulok helye</td></tr>
+            <tr><td><strong>Északi híd (North Bridge)</strong></td><td>Memóriavezérlés, PCI/PCIe kezelése (ma már a CPU-ban van)</td></tr>
+            <tr><td><strong>Déli híd (South Bridge)</strong></td><td>Tárolók (HDD/SSD), USB portok vezérlése</td></tr>
+            <tr><td><strong>ROM BIOS chip</strong></td><td>A BIOS/UEFI firmware tárolója</td></tr>
+            <tr><td><strong>CMOS RAM</strong></td><td>BIOS beállítások tárolója (gombelem táplálja)</td></tr>
+            <tr><td><strong>SATA portok</strong></td><td>Tárolóeszközök csatlakoztatása (3 Gbps vagy 6 Gbps)</td></tr>
+            <tr><td><strong>PCI Express foglalatok</strong></td><td>Videokártya, hangkártya, hálózati kártya helye</td></tr>
+            <tr><td><strong>24 tűs ATX tápcsatlakozó</strong></td><td>A tápegység fő csatlakozója (3,3V, 5V, 12V)</td></tr>
+            <tr><td><strong>Gombelem (CR2032)</strong></td><td>A CMOS RAM és az óra tápellátása kikapcsolt állapotban</td></tr>
+            <tr><td><strong>Órajel generátor</strong></td><td>Ütemezi a számítógép működését (mint egy metronóm)</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Hátlapi csatlakozók (ATX szabvány):</strong></p>
+        <ul>
+          <li>PS/2 (lila: billentyűzet, zöld: egér)</li>
+          <li>2–4 USB port</li>
+          <li>3,5 mm-es jack hangcsatlakozók</li>
+          <li>RJ-45 (hálózat)</li>
+          <li>D-SUB, DVI, HDMI, DisplayPort (ha van integrált VGA)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>2.2 Processzor (CPU)</h3>
+        <p><strong>CPU (Central Processing Unit):</strong> a számítógép „agya".</p>
+        <ul>
+          <li>A legtöbb számítási művelet itt megy végbe</li>
+          <li>Gyártók: <strong>Intel, AMD</strong></li>
+        </ul>
+
+        <h4>Processzor tokozása és foglalata</h4>
+        <ul>
+          <li><strong>PGA (Pin Grid Array):</strong> az érintkezők a processzoron vannak → ZIF foglalatba illik</li>
+          <li><strong>LGA (Land Grid Array):</strong> az érintkezők a foglalatban vannak</li>
+        </ul>
+
+        <h4>Működési elv</h4>
+        <ul>
+          <li>A CPU végrehajtja a tárolt utasítások sorozatát (program)</li>
+          <li>Minden processzornak van <strong>utasításkészlete</strong></li>
+          <li>Futtatás közben a szükséges adatok a <strong>gyorsítótárban (cache)</strong> tárolódnak</li>
+        </ul>
+
+        <p><strong>Két alapvető CPU architektúra:</strong></p>
+        <table>
+          <thead><tr><th>Típus</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>RISC</strong> (Reduced Instruction Set Computer)</td><td>Kis utasításkészlet, de nagyon gyorsan hajtja végre</td></tr>
+            <tr><td><strong>CISC</strong> (Complex Instruction Set Computer)</td><td>Nagy utasításkészlet, kevesebb lépés szükséges</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Teljesítményt befolyásoló tényezők:</strong></p>
+        <ul>
+          <li><strong>Órajel frekvencia:</strong> MHz vagy GHz (másodpercenkénti ciklusok száma)</li>
+          <li><strong>Adatbusz szélessége:</strong> 32 bites vagy 64 bites (egyidejűleg átvitt bitek száma)</li>
+          <li><strong>Buszrendszer:</strong> FSB (Front Side Bus) / rendszerbusz</li>
+        </ul>
+
+        <p><strong>Magok száma (multicore):</strong></p>
+        <table>
+          <thead><tr><th>Típus</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td>Egymagos CPU</td><td>1 mag végez minden feladatot</td></tr>
+            <tr><td>Kétmagos (Dual-core)</td><td>2 mag egyszerre, külön-külön számít</td></tr>
+            <tr><td>Hárommagos</td><td>Valójában egy négymagos, ahol 1 mag ki van kapcsolva</td></tr>
+            <tr><td>Négymagos (Quad-core)</td><td>4 mag egy chipen</td></tr>
+            <tr><td>Hat- és nyolcmagos</td><td>6 ill. 8 mag egy chipen</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Hyperthreading (Intel technológia):</strong></p>
+        <ul>
+          <li>Az OS számára 1 kétszálas processzor = 2 processzornak látszik</li>
+          <li>Egyidejűleg több programrészletet hajt végre</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>2.3 RAM (Random Access Memory)</h3>
+        <ul>
+          <li><strong>Véletlen elérésű, írható/olvasható</strong> adattároló</li>
+          <li><strong>Volatilis (felejtő):</strong> kikapcsoláskor az adatok elvesznek</li>
+          <li>Tárolja: a CPU által végrehajtandó programokat és feldolgozandó adatokat</li>
+          <li>A <strong>memóriarekesz</strong> 1 bájtot tárol; sorszáma a <strong>cím</strong></li>
+          <li>8 cella = 1 bájt, 1 cella = 1 bit</li>
+        </ul>
+
+        <p><strong>Miért lassabb a RAM, mint a CPU?</strong><br />
+        → Ezért van a CPU-ban <strong>cache (gyorsítótár)</strong> memória</p>
+
+        <p><strong>Késleltetés (Latency):</strong> pl. 2-4-4-5 formában jelzik</p>
+        <ul>
+          <li>1. szám: CAS (Column Address Strobe) késleltetés</li>
+          <li>2. szám: tRCD (sor és oszlop kiválasztás közötti idő)</li>
+          <li>3. szám: RP (RAS Precharge)</li>
+          <li>4. szám: sor és modul kiválasztás közötti szünet</li>
+        </ul>
+
+        <p><strong>Dual Channel mód:</strong> két egyforma modult kötnek be → nagyobb sávszélesség → gyorsabb teljesítmény</p>
+
+        <p><strong>RAM tokozási típusok:</strong></p>
+        <ul>
+          <li><strong>SIMM</strong> (Single In-Line Memory Module) – régi, 286/386/486 korszak</li>
+          <li><strong>DIMM</strong> (Dual In-Line Memory Module) – mai standard</li>
+          <li><strong>DDR2, DDR3, DDR4, DDR5</strong> – generációk, egyre gyorsabbak</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>2.4 Hűtőrendszerek</h3>
+        <p><strong>Miért kell hűteni?</strong></p>
+        <ul>
+          <li>Az elektromos áram áthaladása hőt termel</li>
+          <li>Túl sok hő → lassabb működés, alkatrész károsodás</li>
+        </ul>
+
+        <p><strong>CPU hűtése:</strong></p>
+        <ul>
+          <li><strong>Hűtőborda (heatsink):</strong> elvezeti a hőt a processzor magjától</li>
+          <li><strong>Ventilátor:</strong> a hűtőbordán elhelyezve a hőt a házból kivezeti</li>
+          <li>Hővezető paszta kerül a CPU és a hűtőborda közé</li>
+        </ul>
+
+        <p><strong>GPU (videokártya) hűtése:</strong></p>
+        <ul>
+          <li>Terhelés alatt akár 100 Celsius fokra is melegedhet</li>
+          <li>Saját ventilátorral van ellátva</li>
+        </ul>
+
+        <p><strong>Vízhűtés:</strong></p>
+        <ul>
+          <li>Nagy teljesítményű CPU-khoz és GPU-khoz</li>
+          <li>Fém lapka a processzoron → víz kering felette → hűtőtestbe kerül → levegő elvezeti a hőt → újrakerintetés</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. NAP -->
+    <section>
+      <h2 class="day-title">Számítógépház, Tápegység, Bővítőkártyák, Feszültségvédelem</h2>
+
+      <div class="card">
+        <h3>3.1 Számítógépház</h3>
+        <p><strong>Funkciói:</strong></p>
+        <ol>
+          <li><strong>Védelem:</strong> megvédi a belső alkatrészeket</li>
+          <li><strong>Váz:</strong> megtartja az alkatrészeket</li>
+          <li><strong>Hűtés:</strong> ventilátorok mozgatják a levegőt az alkatrészek között</li>
+          <li><strong>Földelés:</strong> az alkatrészek érintkeznek a házzal → elektrosztatikus védelmet nyújt</li>
+        </ol>
+        <p><strong>Anyaga:</strong> műanyag, acél vagy alumínium</p>
+        <p><strong>Ház kiválasztásánál figyelni kell:</strong></p>
+        <ul>
+          <li>Alaplap mérete (ATX, Micro-ATX, Mini-ITX)</li>
+          <li>Külső és belső meghajtóhelyek száma</li>
+          <li>Rendelkezésre álló hely</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>3.2 Tápegység</h3>
+        <p><strong>Feladata:</strong> a fali aljzatból érkező váltóáramot (AC) kisfeszültségű egyenárammá (DC) alakítja.</p>
+
+        <p><strong>Tápegység formátumok:</strong></p>
+        <ul>
+          <li>AT (Advanced Technology) – elavult</li>
+          <li>ATX (AT Extended) – régebbi</li>
+          <li><strong>ATX12V</strong> – napjaink leggyakoribb típusa</li>
+        </ul>
+
+        <p><strong>Feszültségszintek:</strong></p>
+        <table>
+          <thead><tr><th>Feszültség</th><th>Szín</th><th>Felhasználás</th></tr></thead>
+          <tbody>
+            <tr><td>+12V</td><td>Sárga</td><td>Lemezmeghajtó motorok, ventilátorok</td></tr>
+            <tr><td>-12V</td><td>Kék</td><td>Soros port áramkörei, ROM</td></tr>
+            <tr><td>+5V</td><td>Piros</td><td>Alaplap, régebbi processzorok, egyéb alaplapi elemek</td></tr>
+            <tr><td>-5V</td><td>Fehér</td><td>ISA busz kártyák</td></tr>
+            <tr><td>+3,3V</td><td>Narancs</td><td>PCI grafikus kártyák, CPU</td></tr>
+            <tr><td>0V</td><td>Fekete</td><td>Földelés</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>3 speciális ATX kivezetés:</strong></p>
+        <ul>
+          <li><strong>PWR-OK (szürke, 5V):</strong> jelzi, hogy minden feszültség stabil → az alaplap csak ekkor lép működésbe</li>
+          <li><strong>PS-ON (zöld, 5V):</strong> szoftveres ki-/bekapcsolás (APM, ACPI funkciók)</li>
+          <li><strong>5VSB (lila, 5V):</strong> készenléti állapotban is aktív → lehetővé teszi a távolról való bekapcsolást (LAN, USB)</li>
+        </ul>
+
+        <p><strong>Tápegység csatlakozók:</strong></p>
+        <table>
+          <thead><tr><th>Csatlakozó</th><th>Felhasználás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Molex</strong></td><td>Optikai meghajtók, régi merevlemezek</td></tr>
+            <tr><td><strong>Berg</strong></td><td>Hajlékonylemezes meghajtó (kisebb, mint a Molex)</td></tr>
+            <tr><td><strong>SATA</strong></td><td>Optikai meghajtók, SATA merevlemezek</td></tr>
+            <tr><td><strong>20/24 tűs ATX</strong></td><td>Az alaplap főtápcsatlakozója</td></tr>
+            <tr><td><strong>4-8 tűs kiegészítő</strong></td><td>Alaplap további területei</td></tr>
+            <tr><td><strong>6-8 tűs PCIe</strong></td><td>Videokártyák tápellátása</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>3.3 Feszültségingadozás és Szünetmentes Tápegység (UPS)</h3>
+        <p><strong>A feszültségingadozás típusai:</strong></p>
+        <table>
+          <thead><tr><th>Típus</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Áramszünet (blackout)</strong></td><td>Az áram teljes megszűnése</td></tr>
+            <tr><td><strong>Feszültségesés (brownout)</strong></td><td>Feszültség a normál 80%-a alá esik</td></tr>
+            <tr><td><strong>Zaj</strong></td><td>Generátoroktól, villámlástól eredő zavar</td></tr>
+            <tr><td><strong>Tüske (spike)</strong></td><td>Rövid, hirtelen feszültségnövekedés (>100%)</td></tr>
+            <tr><td><strong>Áramlöket</strong></td><td>Nanoszekundumos hatalmas feszültségugrás</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Védelmi eszközök:</strong></p>
+        <ul>
+          <li><strong>Túlfeszültségvédő:</strong> áramlöketek és tüskék ellen; a többletfeszültséget a földelésre vezeti</li>
+          <li><strong>UPS (Uninterruptible Power Supply – Szünetmentes tápegység):</strong> folyamatos tápellátást biztosít; beépített akkumulátor folyamatosan töltődik</li>
+        </ul>
+
+        <p><strong>UPS típusok:</strong></p>
+        <ul>
+          <li><strong>Készenléti UPS</strong> (pl. APC Back-UPS): normálisan átengedi a hálózati áramot; csak probléma esetén kapcsol az akkumulátorra → lassabb átkapcsolás</li>
+          <li><strong>Vonal interaktív UPS</strong> (pl. APC Smart-UPS): automatikus feszültségszabályozó (AVR) korrigálja az ingadozásokat → jobb védelem</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>3.4 Illesztő- és Bővítőkártyák</h3>
+        <p><strong>Illesztőkártya:</strong> növeli a számítógép funkcionalitását; vezérlőegységet ad hozzá.</p>
+
+        <p><strong>Bővítőkártyák típusai:</strong></p>
+        <table>
+          <thead><tr><th>Típus</th><th>Funkció</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NIC (Network Interface Card)</strong></td><td>Hálózati csatoló</td></tr>
+            <tr><td><strong>Wireless NIC</strong></td><td>Vezeték nélküli hálózat</td></tr>
+            <tr><td><strong>Hangkártya</strong></td><td>Audio szolgáltatások</td></tr>
+            <tr><td><strong>Videokártya (GPU)</strong></td><td>Grafikai feldolgozás</td></tr>
+            <tr><td><strong>TV tuner kártya</strong></td><td>TV-adás megtekintése, rögzítése</td></tr>
+            <tr><td><strong>Modem adapter</strong></td><td>Internet telefonvonalon</td></tr>
+            <tr><td><strong>SCSI vezérlő</strong></td><td>SCSI eszközök csatlakoztatása</td></tr>
+            <tr><td><strong>RAID vezérlő</strong></td><td>Több merevlemez kezelése</td></tr>
+            <tr><td><strong>USB csatoló</strong></td><td>Külső eszközök</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Bővítőhelyek (slotok):</strong></p>
+        <table>
+          <thead><tr><th>Bővítőhely</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PCI</strong></td><td>Régebbi standard; egyszerű kommunikáció</td></tr>
+            <tr><td><strong>AGP</strong></td><td>Grafikus kártyákhoz; elavult</td></tr>
+            <tr><td><strong>PCIe (PCI Express)</strong></td><td>Az AGP utódja; van x1, x4, x8, x16 változat</td></tr>
+            <tr><td><strong>PCIx</strong></td><td>Akár 4× gyorsabb, mint PCI</td></tr>
+            <tr><td><strong>Mini PCI</strong></td><td>Laptopokban</td></tr>
+            <tr><td><strong>CNR</strong></td><td>Régi hálózati/hangkártya slot; már nem használják</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. NAP -->
+    <section>
+      <h2 class="day-title">Tárolóeszközök, Merevlemez-struktúra, RAID</h2>
+
+      <div class="card">
+        <h3>4.1 Tárolóeszközök</h3>
+        <p><strong>Tárolóeszköz:</strong> olyan elektronikai eszköz, amely képes az információ tárolására; feszültség nélkül is megmaradnak az adatok.</p>
+        <p><strong>4 fő típus:</strong></p>
+
+        <h4>Hajlékony lemezes meghajtó (Floppy)</h4>
+        <ul>
+          <li>3,5 inch-es mágneslemez, max. <strong>1,44 MB</strong> kapacitás</li>
+          <li>Általában az <strong>A: meghajtóbetűjelet</strong> kapja</li>
+          <li>Mára teljesen elavult</li>
+        </ul>
+
+        <h4>Merevlemez – HDD (Hard Disk Drive)</h4>
+        <ul>
+          <li>Mágneses elven tárolja az adatokat</li>
+          <li>Kapacitás: GB-tól TB-ig</li>
+          <li>Sebesség: <strong>RPM (fordulatszám)</strong> → 5400, 7200, 10 000, 15 000 rpm</li>
+          <li>Mozgó alkatrészek vannak → töredezetté válhat (defragmentálás szükséges)</li>
+        </ul>
+
+        <h4>Merevlemez – SSD (Solid State Drive)</h4>
+        <ul>
+          <li><strong>Nincsenek mozgó alkatrészek</strong> → gyorsabb, megbízhatóbb, csendesebb</li>
+          <li>Flash memória chipeken tárolja az adatokat</li>
+          <li>Kevesebb energiafogyasztás</li>
+          <li>ATA vagy SATA csatlakozóval rendelkeznek</li>
+        </ul>
+
+        <h4>Optikai meghajtó</h4>
+        <table>
+          <thead><tr><th>Típus</th><th>Kapacitás</th></tr></thead>
+          <tbody>
+            <tr><td>CD</td><td>~700 MB</td></tr>
+            <tr><td>DVD (egyrétegű)</td><td>~4,7 GB</td></tr>
+            <tr><td>DVD (kétrétegű)</td><td>~8,5 GB</td></tr>
+            <tr><td>Blu-ray (egyrétegű)</td><td>25 GB</td></tr>
+            <tr><td>Blu-ray (kétrétegű)</td><td>50 GB</td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>Lézersugárral olvassa/írja az adatokat</li>
+          <li>Lehetnek: csak olvasható (ROM), egyszer írható (R), újraírható (RW)</li>
+        </ul>
+
+        <h4>Flash meghajtó (Pendrive)</h4>
+        <ul>
+          <li>USB porthoz csatlakoztatható</li>
+          <li>Nem felejtő (nemvolatilis) flash memória</li>
+          <li>Nincs szüksége energiára az adatok megtartásához</li>
+        </ul>
+
+        <p><strong>Csatlakozási típusok:</strong></p>
+        <ul>
+          <li>Belső tárolók: SATA, PATA (IDE) csatlakozók</li>
+          <li>Külső tárolók: USB, FireWire (IEEE 1394), eSATA, SCSI</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>4.2 Merevlemezek adattárolási struktúrája</h3>
+
+        <h4>Fizikai felépítés</h4>
+        <ul>
+          <li><strong>Sáv (track):</strong> koncentrikus körök a lemezfelületen</li>
+          <li><strong>Szektor (sector):</strong> a sávon belüli kisebb egységek</li>
+          <li><strong>Cilinder (cylinder):</strong> fizikailag egymás alatt elhelyezkedő sávok (több lemezfelület esetén)</li>
+        </ul>
+
+        <h4>Formázás lépései</h4>
+        <p><strong>1. Alacsony szintű (fizikai) formázás (Low Level Format):</strong></p>
+        <ul>
+          <li>Felírja az azonosítókat a lemezre</li>
+          <li>Beírja a szektor fejekbe: sáv száma, fej sorszáma, szektor száma</li>
+          <li><strong>A gyárban végzik el</strong> → a felhasználó nem kell/nem szabad megismételje</li>
+        </ul>
+
+        <p><strong>2. Logikai formázás:</strong></p>
+        <ul>
+          <li>Kialakítja a <strong>fájlrendszert</strong></li>
+          <li>Alapegység: <strong>klaszter</strong> (több szektorból áll)</li>
+          <li>Az OS csak klaszterenként tud írni/olvasni</li>
+        </ul>
+
+        <h4>Particionálás</h4>
+        <ul>
+          <li>Minden merevlemez 1 fizikai partícióból áll</li>
+          <li>Feloszható <strong>logikai partíciókra</strong> (mintha külön merevlemezek lennének)</li>
+          <li>Lehetővé teszi több operációs rendszer futtatását</li>
+          <li><strong>MBR (Master Boot Record):</strong> az első szektorban van; tartalmazza a partíciós táblát és az indító adatokat</li>
+        </ul>
+
+        <h4>Fájlrendszerek</h4>
+        <table>
+          <thead><tr><th>Fájlrendszer</th><th>Operációs rendszer</th></tr></thead>
+          <tbody>
+            <tr><td>FAT16</td><td>MS-DOS</td></tr>
+            <tr><td>FAT32</td><td>Windows 95, 98</td></tr>
+            <tr><td>NTFS</td><td>Windows NT, 2000, XP, Vista, 7, 10, 11</td></tr>
+            <tr><td>ext2/ext3/ext4</td><td>Linux</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>4.3 RAID (Redundant Array of Independent Disks)</h3>
+        <p><strong>Célja:</strong></p>
+        <ul>
+          <li>Nagyobb <strong>megbízhatóság</strong> (redundancia)</li>
+          <li>Nagyobb <strong>adatelérési sebesség</strong></li>
+          <li>Az OS számára <strong>egyetlen logikai meghajtóként</strong> látszik</li>
+        </ul>
+
+        <p><strong>RAID szintek:</strong></p>
+
+        <h4>RAID 0 – Csíkozás (Striping)</h4>
+        <ul>
+          <li>Az adatokat <strong>elosztja</strong> a meghajtók között</li>
+          <li><strong>Legjobb teljesítmény</strong> az összes RAID közül</li>
+          <li><strong>Nincs redundancia</strong> → ha 1 lemez meghibásodik, minden adat elveszik</li>
+          <li>Alkalmazás: ahol nem fontos az adatbiztonság, de fontos a sebesség</li>
+        </ul>
+
+        <h4>RAID 1 – Tükrözés (Mirroring)</h4>
+        <ul>
+          <li>Az adatokat <strong>duplikáltan</strong> tárolja 2 meghajtón</li>
+          <li><strong>Kiváló hibavédelem</strong> → bármelyik meghajtó meghibásodhat</li>
+          <li>Olvasás: párhuzamosan, gyorsabb</li>
+          <li>Írás: normál sebességgel, párhuzamosan</li>
+          <li><strong>Hátránya:</strong> kétszeres tárhelyfelhasználás</li>
+        </ul>
+
+        <h4>RAID 5 – Csíkozás paritással</h4>
+        <ul>
+          <li>Az adatokat <strong>ÉS a paritásinformációt</strong> osztja el egyenletesen az összes meghajtón</li>
+          <li><strong>Körbeforgó paritás (rotating parity)</strong> – nincs egyetlen kijelölt paritáslemez</li>
+          <li>Párhuzamos írás és olvasás</li>
+          <li>Minimum <strong>3 meghajtó</strong> szükséges</li>
+        </ul>
+
+        <h4>RAID 01 (RAID 10 / RAID 1+0)</h4>
+        <ul>
+          <li><strong>Hibrid:</strong> RAID 0 sebessége + RAID 1 biztonsága</li>
+          <li>Minimum <strong>4 meghajtó</strong> szükséges</li>
+          <li>Összefűzés (RAID 0) + tükrözés (RAID 1)</li>
+          <li>A teljes kapacitás felét lehet használni</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. NAP -->
+    <section>
+      <h2 class="day-title">Megjelenítők, Nyomtatók</h2>
+
+      <div class="card">
+        <h3>5.1 Megjelenítők (Monitorok)</h3>
+        <p><strong>A legfontosabb kimeneti eszköz.</strong></p>
+
+        <h4>Monitorok típusai képmegjelenítés szerint</h4>
+
+        <h5>Katódsugárcsöves (CRT – Cathode Ray Tube)</h5>
+        <ul>
+          <li>Régebben legelterjedtebb (pl. hagyományos TV)</li>
+          <li><strong>Előnyök:</strong> alacsony ár, legjobb képminőség a technológiák közül</li>
+          <li><strong>Hátrányok:</strong> nagy súly, nagy fogyasztás, káros kisugárzás, villogó kép</li>
+          <li><strong>Működési elv:</strong>
+            <ol>
+              <li>Elektronágyú: monokróm = 1 sugár, színes = 3 sugár</li>
+              <li>Mágneses eltérítő tekercsek mozgatják a sugarat</li>
+              <li>Foszforporral bevont felület → a becsapódó elektron fényt kelt</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h5>Folyadékkristályos (LCD – Liquid Crystal Display)</h5>
+        <ul>
+          <li>Először laptopokban, ma asztali változatok is</li>
+          <li><strong>Előnyök:</strong> vékony, kis energiafogyasztás, állandó (nem villogó) kép</li>
+          <li><strong>Hátrányok:</strong> magasabb ár, alacsony betekintési szög</li>
+          <li><strong>Működési elv:</strong>
+            <ol>
+              <li>Két üveglap közé folyadékkristályt helyeznek</li>
+              <li>Polárszűrők csak egy irányból engedik át a fényt</li>
+              <li>Kristálymolekula elforgatja a fényt → világos pont</li>
+              <li>Ha feszültséget kap a kristály: nem forgatja a fényt → fekete pont</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h5>Gázplazmás (PDP – Plasma Display Panel)</h5>
+        <ul>
+          <li>1964 óta létezik; kevésbé elterjedt</li>
+          <li>Képminőség vetekedik a CRT-vel</li>
+          <li>Mérete akár 100 inch felett is lehet</li>
+          <li><strong>Működési elv:</strong>
+            <ul>
+              <li>Minden képpont = 1 kis neoncső</li>
+              <li>Elektromos áram plazmává alakítja a gázt</li>
+              <li>A plazma UV fényt bocsát ki</li>
+              <li>Az UV fény látható fényt gerjeszt a foszforrétegen</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h5>LED megjelenítő (OLED – Organic Light-Emitting Diode)</h5>
+        <ul>
+          <li>Pixelenként szabályozható a világítás</li>
+          <li><strong>Hátránya:</strong> nem elég nagy fényerő</li>
+        </ul>
+
+        <h4>Monitorok főbb paraméterei</h4>
+        <table>
+          <thead><tr><th>Paraméter</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Képátló</strong></td><td>Hüvelykben (inch) mérve (1 inch ≈ 2,54 cm); elterjedtek: 15–24+ inch</td></tr>
+            <tr><td><strong>Felbontás</strong></td><td>Megjeleníthető pixelek száma (sor × oszlop); pl. 1920×1080 = Full HD</td></tr>
+            <tr><td><strong>Képarány</strong></td><td>Pl. 4:3, 16:9, 16:10</td></tr>
+            <tr><td><strong>Színmélység</strong></td><td>1 bit (monokróm), 8 bit (VGA), 16 bit (High Color), 24 bit (True Color), 30–48 bit (Deep Color)</td></tr>
+            <tr><td><strong>Kontraszt</strong></td><td>Világos és sötét aránya egy képkockán (pl. 10 000:1)</td></tr>
+            <tr><td><strong>Képfrissítési frekvencia</strong></td><td>CRT-nél Hz-ben; LCD-nél válaszidő (ms)</td></tr>
+            <tr><td><strong>Színkeverés</strong></td><td>RGB (additív): R+G+B maximumon = fehér</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Felbontások:</strong></p>
+        <table>
+          <thead><tr><th>Jelölés</th><th>Felbontás</th></tr></thead>
+          <tbody>
+            <tr><td>SVGA</td><td>800×600</td></tr>
+            <tr><td>XGA</td><td>1024×768</td></tr>
+            <tr><td>HD</td><td>1366×768</td></tr>
+            <tr><td>Full HD</td><td>1920×1080</td></tr>
+            <tr><td>UHD 4K</td><td>3840×2160</td></tr>
+            <tr><td>UHD 8K</td><td>7680×4320</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Csatlakozási típusok:</strong></p>
+        <table>
+          <thead><tr><th>Csatlakozó</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>D-Sub (VGA)</strong></td><td>Analóg; támogatja a Full HD-t</td></tr>
+            <tr><td><strong>DVI</strong></td><td>Digitális és analóg; típusai: DVI-A, DVI-D, DVI-I</td></tr>
+            <tr><td><strong>HDMI</strong></td><td>Digitális; 4K, 60fps; mini és micro változat is</td></tr>
+            <tr><td><strong>DisplayPort</strong></td><td>Digitális; akár 8K; akár 8 monitor Full HD-ban</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>5.2 Nyomtatók</h3>
+        <p><strong>Csoportosítás alkalmazott technika szerint:</strong></p>
+        <ul>
+          <li><strong>Kontakt nyomtatók</strong> (fizikailag érinti a papírt)</li>
+          <li><strong>Nem kontakt nyomtatók</strong></li>
+        </ul>
+
+        <p><strong>Csoportosítás működési elv szerint:</strong></p>
+
+        <h4>Mátrixnyomtató (mechanikus/kontakt)</h4>
+        <ul>
+          <li>Nyomtatófej tűi ütnek a festékszalagra → kép a papíron</li>
+          <li><strong>9 vagy 24 tű</strong> a fejen</li>
+          <li>Leporelló papírt használ</li>
+          <li><strong>Előnyök:</strong> olcsó festék, egybefüggő papír, másolatkészítés</li>
+          <li><strong>Hátrányok:</strong> zajos, lassú, alacsony felbontás</li>
+        </ul>
+
+        <h4>Tintasugaras nyomtató</h4>
+        <ul>
+          <li>Festékpatronok apró lyukakon (fúvókákon) szórják a festéket</li>
+          <li><strong>Előnyök:</strong> alacsony bekerülési költség, nagy felbontás</li>
+          <li><strong>Hátrányok:</strong> fúvókák eltömődhetnek, drága patronok, lassan szárad a tinta</li>
+          <li>Két technológia:
+            <ul>
+              <li><strong>Ink Jet:</strong> piezo kristályok pumpálják a tintát</li>
+              <li><strong>Bubble Jet:</strong> felmelegített tinta → gőzbuborék repíti ki a tintát</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>Lézernyomtató</h4>
+        <ul>
+          <li>Lézerfénnyel és festékporral (toner) dolgozik</li>
+          <li><strong>Előnyök:</strong> alacsony laponkénti költség, nagy sebesség, nagy terhelhetőség</li>
+          <li><strong>Hátrányok:</strong> magas bekerülési költség, drága toner, képzettséget igényel</li>
+          <li><strong>Működési lépések (6 lépés):</strong>
+            <ol>
+              <li><strong>Kondicionálás</strong> – látens kép eltávolítása a dobról</li>
+              <li><strong>Írás</strong> – a dobegységet lézerrel megvilágítják</li>
+              <li><strong>Előhívás</strong> – negatív töltésű festékszemcsék a pozitív töltésű dob részeire tapadnak</li>
+              <li><strong>Felhordás</strong> – a festék a papírra kerül</li>
+              <li><strong>Beégetés</strong> – felmelegített görgő rögzíti a festéket a papíron</li>
+              <li>LED-es lézernyomtató: LED sor világítja meg a szelénhengert</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h4>Hőpapíros nyomtató</h4>
+        <ul>
+          <li>Főleg <strong>pénztárgépekben</strong> használják</li>
+          <li>Hőpapír = vegyileg előkezelt, viaszos tapintású anyag; hő hatására megfeketedik</li>
+          <li><strong>Előnyök:</strong> hosszú élettartam, nincs festékköltség</li>
+          <li><strong>Hátrányok:</strong> drága a papír, hamar tönkremegy, gyenge minőség</li>
+        </ul>
+
+        <h4>Szilárdtintás nyomtató</h4>
+        <ul>
+          <li>Szilárd halmazállapotú műgyanta vagy viasz alapú festék</li>
+          <li><strong>Előnyök:</strong> viaszos felület (vízálló), fotóminőség, környezetbarát</li>
+          <li><strong>Hátrányok:</strong> lassú felmelegedés, magas energiafogyasztás, viaszos réteg miatt nem írható</li>
+        </ul>
+
+        <h4>Festékszublimációs nyomtató</h4>
+        <ul>
+          <li>Fotóminőségű grafikai nyomtatás</li>
+          <li>Szilárd festék → gáznemű (szublimáció)</li>
+          <li><strong>Előnyök:</strong> kiváló képminőség, zsír- és nedvességálló</li>
+          <li><strong>Hátrányok:</strong> magas fenntartási költség</li>
+        </ul>
+
+        <h4>3D nyomtató</h4>
+        <ul>
+          <li>CAD fájlt szeletel fel (~0,1 mm-es rétegek)</li>
+          <li>Por alapanyaggal és ragasztóval dolgozik</li>
+          <li>Képes pontos valós 3D modellek előállítására</li>
+        </ul>
+
+        <p><strong>Nyomtatók főbb paraméterei</strong></p>
+        <ul>
+          <li><strong>Felbontás:</strong> DPI (dots per inch) – pl. 300, 600, 1200 DPI</li>
+          <li><strong>Nyomtatási sebesség:</strong>
+            <ul>
+              <li>CPS (characters per second) – karakternyomtatóknál</li>
+              <li>PPM (pages per minute) – lapnyomtatóknál</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Színkeverés – CMYK (nyomtatóknál)</strong></p>
+        <ul>
+          <li><strong>Kivonó (szubtraktív)</strong> színkeverés</li>
+          <li>C = Cyan, M = Magenta, Y = Yellow, K = Black (Key)</li>
+          <li>A fehér fényből bizonyos színeket elnyel → a visszavert maradék adja a képet</li>
+          <li><strong>Fehér szín nem nyomtatható</strong> (a papír fehér)</li>
+          <li>Fekete szín külön szükséges</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. NAP -->
+    <section>
+      <h2 class="day-title">Big Data, Virtualizáció, CAD/CAM, Elektronika alapjai</h2>
+
+      <div class="card">
+        <h3>6.1 Big Data</h3>
+        <p><strong>Mi a Big Data?</strong><br />
+        Big Data-ról akkor beszélünk, ha:</p>
+        <ul>
+          <li><strong>Nagy mennyiségű</strong> adat</li>
+          <li><strong>Nagy sebességű</strong> (valós idejű, folyamatosan érkező) adat</li>
+          <li><strong>Nagy változatosságú</strong> (sokféle tartalmú és formátumú) adat</li>
+        </ul>
+
+        <p>A fogalmat <strong>Roger Mougalas (O'Reilly Media)</strong> használta először 2005-ben. Ugyanebben az évben hozta létre a <strong>Yahoo! a Hadoop</strong>-ot (nagy adathalmaz kezelő rendszer).</p>
+
+        <p><strong>Mire használjuk a Big Data-t?</strong></p>
+        <ul>
+          <li>Költségek, feldolgozási idők csökkentése</li>
+          <li>Új termékek, szolgáltatások fejlesztése</li>
+          <li>Jobb döntéshozatal</li>
+          <li>Prediktív elemzés (előrejelzés)</li>
+          <li>Viselkedéselemzés (marketing, orvostudomány, rendészet stb.)</li>
+        </ul>
+
+        <p><strong>Kihívások:</strong></p>
+        <ul>
+          <li><strong>Adatvédelem</strong> (GDPR – EU szabályozás)</li>
+          <li><strong>Hatékonyság</strong> – nehéz kezelni a hatalmas adatmennyiséget</li>
+          <li>Szükséges: <strong>gépi tanulás, üzleti intelligencia (BI), felhőalapú számítástechnika</strong></li>
+        </ul>
+
+        <p><strong>Szükséges hardver:</strong></p>
+        <ul>
+          <li><strong>Felhőalapú tárolórendszerek</strong> – helytől független adatfeldolgozás</li>
+          <li><strong>Fog (köd) farmok</strong> – logikailag a helyi szerverek felett, fizikailag közelben</li>
+        </ul>
+
+        <p><strong>Big Data alkalmazásai:</strong></p>
+        <ul>
+          <li><strong>BKK Futár</strong> – GPS-adatok alapján forgalomelemzés, menetrendszámítás</li>
+          <li><strong>Google App Engine</strong> – alkalmazások futtatása felhőben</li>
+          <li><strong>Amazon EC2</strong> – virtuális számítógép-kölcsönzés</li>
+          <li><strong>Tinder</strong> – komplex egyeztetési algoritmus nagy felhasználói adatbázison</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>6.2 Virtualizáció</h3>
+        <p><strong>Virtualizáció:</strong> fizikai helyett <strong>szimulált (virtuális) számítási környezet</strong> létrehozása.</p>
+        <ul>
+          <li>Egyetlen fizikai számítógép → több virtuális gép</li>
+          <li>Minden virtuális gép egymástól független; különféle OS-t és alkalmazásokat futtathat</li>
+          <li>Közös gazdagép-erőforrásokon osztoznak</li>
+        </ul>
+
+        <p><strong>Előnyök:</strong></p>
+        <ul>
+          <li>Jobb erőforrás-kihasználás</li>
+          <li>Kevesebb szerver szükséges</li>
+          <li>Kevesebb energiafogyasztás</li>
+          <li>Alacsonyabb infrastruktúra- és karbantartási költség</li>
+        </ul>
+
+        <p><strong>A virtualizáció 4 kategóriája:</strong></p>
+        <table>
+          <thead><tr><th>Típus</th><th>Leírás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Asztali virtualizáció</strong></td><td>Egyetlen szerver egyedi asztali rendszereket tesz elérhetővé</td></tr>
+            <tr><td><strong>Hálózati virtualizáció</strong></td><td>Sávszélességet független csatornákra osztja fel</td></tr>
+            <tr><td><strong>Szoftver-virtualizáció</strong></td><td>Alkalmazásokat elkülöníti a hardvertől és OS-től</td></tr>
+            <tr><td><strong>Tárolási virtualizáció</strong></td><td>Több hálózati tárolót egyesít egyetlen tárolóeszközzé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>6.3 CAD/CAM Munkaállomások</h3>
+        <p><strong>CAD</strong> – Computer-Aided Design (számítógéppel segített tervezés)<br />
+        <strong>CAM</strong> – Computer-Aided Manufacturing (számítógéppel segített gyártás)</p>
+
+        <p>Felhasználás: modellek, lakások, autók, repülők, alkatrészek tervezése.</p>
+
+        <p><strong>Szükséges hardver CAD/CAM munkaállomáshoz:</strong></p>
+        <ul>
+          <li><strong>Nagy teljesítményű processzor</strong> – rengeteg számítás</li>
+          <li><strong>Csúcsminőségű videokártya</strong> – 3D renderelés, több monitor, nagy felbontás</li>
+          <li><strong>Nagy RAM</strong> – sok adatot kezel egyszerre; minél több, annál jobb</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>6.4 Elektronika alapjai (Kristálytiszta Elektronika anyag)</h3>
+
+        <h4>Kapcsolási rajzok alapjai</h4>
+        <p><strong>Kapcsolási rajz:</strong> „térkép", amellyel ki lehet igazodni egy áramkör felépítésében.</p>
+        <ul>
+          <li>Két szabvány létezik: <strong>IEC</strong> és <strong>ANSI</strong></li>
+          <li><strong>Csomópont:</strong> ahol több vezetékszakasz összekapcsolódik (ponttal jelölik)</li>
+          <li><strong>Rövidzár:</strong> az áram útját rövidre zárjuk (0 Ohm ellenállás)</li>
+          <li><strong>Szakadás:</strong> nincs vezető az adott szakaszon (végtelen ellenállás)</li>
+        </ul>
+
+        <h4>Alkatrészek csoportosítása</h4>
+        <ul>
+          <li><strong>Aktív elemek:</strong> külső vezérlő jel hatására megváltoztatják elektromos tulajdonságukat (pl. tranzisztor, MOSFET, processzor, memória)</li>
+          <li><strong>Passzív elemek:</strong> minden más (pl. ellenállás, kondenzátor, dióda, tekercs)</li>
+        </ul>
+
+        <h4>Főbb alkatrészek</h4>
+        <p><strong>Ellenállás (R):</strong></p>
+        <ul>
+          <li>Mértékegység: <strong>Ohm (Ω)</strong></li>
+          <li>Az áram áthaladáskor hő keletkezik</li>
+          <li>Soros kapcsolásnál: R_e = R1 + R2 + R3 (összeg)</li>
+          <li>Párhuzamos kapcsolásnál: 1/R_e = 1/R1 + 1/R2 + ... (reciprok összeg)</li>
+          <li>Teljesítmény: P = U × I = U²/R = R × I²</li>
+        </ul>
+
+        <p><strong>Kondenzátor (C):</strong></p>
+        <ul>
+          <li>Mértékegység: <strong>Farad (F)</strong></li>
+          <li>Két vezető réteg (fegyverzet) közt szigetelő (dielektrikum)</li>
+          <li>Polarizált (elektrolit, tantál): figyelni kell a polaritásra!</li>
+          <li>Nem polarizált (kerámia, fólia): mindegy az irány</li>
+        </ul>
+
+        <p><strong>Dióda:</strong></p>
+        <ul>
+          <li>Csak egyik irányban engedi át az áramot (anód → katód)</li>
+          <li><strong>Nyitóirányú feszültség:</strong> ~0,7V (szilícium diódánál)</li>
+          <li>Speciális típusok: LED (fényt bocsát ki), Zéner-dióda (túlfeszültségvédelem), Schottky-dióda</li>
+        </ul>
+
+        <p><strong>Multiméter:</strong></p>
+        <ul>
+          <li>Feszültség, áramerősség, ellenállás mérésére</li>
+          <li>Feszültségmérés: <strong>párhuzamosan</strong> kötjük be</li>
+          <li>Áramerősségmérés: <strong>sorosan</strong> kötjük be (vigyázat: tönkretehetjük a műszert!)</li>
+          <li>Ellenállásmérés: az alkatrészt kivesszük az áramkörből</li>
+        </ul>
+
+        <h4>Ohm-törvény</h4>
+        <p><strong>R [Ω] = U [V] / I [A]</strong></p>
+
+        <h4>Breadboard</h4>
+        <ul>
+          <li>Áramkörök prototípus-összeépítésére</li>
+          <li>Lyukakba nyomjuk az alkatrészek lábait</li>
+          <li>Oszlopok: függőlegesen összekötött lyukak</li>
+          <li>Tápsínek: a hosszabb széleken futó párhuzamos sínek (+/-)</li>
+        </ul>
+
+        <h4>Laboratóriumi tápegység</h4>
+        <ul>
+          <li>Váltóáramot (AC) egyenárammá (DC) alakítja</li>
+          <li>Szabályozható kimenet: feszültség és áramkorlát</li>
+          <li><strong>C.V. (Constant Voltage):</strong> feszültséggenerátoros üzemmód</li>
+          <li><strong>C.C. (Constant Current):</strong> áramgenerátoros üzemmód (az áramkorlát életbe lépett)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Összefoglaló -->
+    <section class="summary">
+      <h2 class="day-title">ÖSSZEFOGLALÓ TÁBLÁZAT – Legfontosabb fogalmak</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>Fogalom</th><th>Egyszerű magyarázat</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CPU</strong></td><td>Processzor, a számítógép agya</td></tr>
+            <tr><td><strong>RAM</strong></td><td>Ideiglenes memória, kikapcsoláskor elvész</td></tr>
+            <tr><td><strong>ROM</strong></td><td>Csak olvasható memória, maradandó</td></tr>
+            <tr><td><strong>BIOS</strong></td><td>Alapszoftver az alaplapon; POST, boot</td></tr>
+            <tr><td><strong>UEFI</strong></td><td>BIOS utódja; gyorsabb, grafikus felület</td></tr>
+            <tr><td><strong>CMOS</strong></td><td>BIOS beállítások tárolója (gombelem táplálja)</td></tr>
+            <tr><td><strong>POST</strong></td><td>Önellenőrzés indításkor</td></tr>
+            <tr><td><strong>MBR</strong></td><td>Első szektor, operációs rendszer betöltő</td></tr>
+            <tr><td><strong>HDD</strong></td><td>Mágneses merevlemez (mozgó alkatrészek)</td></tr>
+            <tr><td><strong>SSD</strong></td><td>Flash alapú meghajtó (nincs mozgó rész)</td></tr>
+            <tr><td><strong>RAID 0</strong></td><td>Gyors, nincs redundancia</td></tr>
+            <tr><td><strong>RAID 1</strong></td><td>Tükrözés, dupla tárhely, jó biztonság</td></tr>
+            <tr><td><strong>RAID 5</strong></td><td>Paritásos, minimum 3 lemez</td></tr>
+            <tr><td><strong>ATX</strong></td><td>Tápegység/alaplap szabvány</td></tr>
+            <tr><td><strong>PCIe</strong></td><td>Bővítőhely szabvány (x1, x4, x8, x16)</td></tr>
+            <tr><td><strong>DPI</strong></td><td>Nyomtatási felbontás (pont/hüvelyk)</td></tr>
+            <tr><td><strong>CMYK</strong></td><td>Nyomtatók színkeverési módja</td></tr>
+            <tr><td><strong>RGB</strong></td><td>Monitorok additív színkeverése</td></tr>
+            <tr><td><strong>UPS</strong></td><td>Szünetmentes tápegység</td></tr>
+            <tr><td><strong>Big Data</strong></td><td>Nagy, gyors, sokféle adathalmaz</td></tr>
+            <tr><td><strong>Virtualizáció</strong></td><td>Egy fizikai gép → több virtuális gép</td></tr>
+            <tr><td><strong>CAD/CAM</strong></td><td>Számítógépes tervezés és gyártás</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="tip">
+        Tipp: A szín-kábel párosításokat (tápegység), a RAID szinteket és a nyomtató 6 lépéses lézer-folyamatot írd ki egy külön papírra és ragaszd ki!
+      </div>
+    </section>
+  </main>
+</body>
+</html>
